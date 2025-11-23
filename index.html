@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./all.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      width: 100%;
+      background: #fff;
+    }
+
+    #main {
+      width: 1920px;
+      height: 1080px;
+    }
+
+    #top {
+      width: 100%;
+      height: 56px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      background: #fff;
+    }
+
+    #top table {
+      width: 100%;
+      text-align: center;
+    }
+
+    #logo {
+      height: 25px;
+      vertical-align: middle;
+      position: absolute;
+      left: 50px;
+
+    }
+
+    .t1 {
+      position: relative;
+      text-align: left;
+      padding: 5px;
+      line-height: 25px;
+      font-size: 18px;
+      width: 215px;
+    }
+
+    .t2 {
+      width: calc(1920px - 430px);
+      text-align: center;
+    }
+
+    .t2 input {
+      width: 50%;
+      height: 36px;
+      border: 1px solid #ccc;
+      border-right: none;
+      border-radius: 20px 0 0 20px;
+      padding: 0 10px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .fa-solid {
+      color: #333;
+    }
+
+    .fa-magnifying-glass {
+      width: 64px;
+      height: 36px;
+      background: #f8f8f8;
+      border: 1px solid #ccc;
+      margin-left: -4px;
+      border-radius: 0 20px 20px 0;
+      cursor: pointer;
+      display: inline-block;
+      vertical-align: middle;
+      text-align: center;
+      line-height: 36px;
+    }
+
+    .fa-microphone,
+    .fa-bell,
+    .fa-circle-user {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #f0f0f0;
+      cursor: pointer;
+      display: inline-block;
+      vertical-align: middle;
+      text-align: center;
+      line-height: 40px;
+      margin-left: 10px;
+    }
+
+    .fa-magnifying-glass:hover,
+    .fa-microphone:hover,
+    .fa-bell:hover,
+    .fa-circle-user:hover {
+      background: #e0e0e0;
+    }
+
+    .t3 {
+      width: 215px;
+    }
+
+    .t3 #plus {
+      display: inline-block;
+      vertical-align: middle;
+      text-align: center;
+      width: 64px;
+      height: 36px;
+      border-radius: 20px;
+      background: #f0f0f0;
+      text-decoration: none;
+      font-size: 14px;
+      line-height: 36px;
+      color: #333;
+    }
+
+    .t3 #plus:hover {
+      background: #e0e0e0;
+    }
+
+    #container {
+      display: flex;
+      width: 100%;
+      background: #fff;
+    }
+
+    #left {
+      width: 220px;
+      height: calc(100vh - 56px);
+      position: fixed;
+      top: 56px;
+      left: 0;
+      z-index: 50;
+      background: #fff;
+      overflow-y: auto;
+    }
+
+    #list {
+      table-layout: fixed;
+    }
+
+    #list div {
+      box-sizing: border-box;
+      line-height: 40px;
+      padding-left: 30px;
+      font-size: 1rem;
+      font-family: 'Roboto, Arial, sans-serif';
+      font-weight: 500;
+    }
+
+    #list div:hover {
+      background: #e0e0e0;
+      border: 1px solid #e0e0e0;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    #list i {
+      padding-right: 30px;
+    }
+
+    #list span {
+      text-align: right;
+    }
+
+    #list p {
+      margin-left: 27px;
+      text-align: left;
+      font-size: 14px;
+      color: rgb(102, 99, 99);
+      line-height: 1.5rem;
+    }
+
+    .a1 {
+      color: #cbbebe;
+    }
+
+    #right {
+      width: calc(1920px - 215px);
+      background: #fff;
+      margin-left: 220px;
+      box-sizing: border-box;
+    }
+
+    #content {
+      width: 100%;
+      padding-top: 96px;
+    }
+
+    .card1 {
+      width: calc((100% - 3 * 20px) / 3);
+      display: inline-block;
+      margin: 5px;
+      text-align: center;
+    }
+
+    .card2 {
+      width: 100%;
+      display: inline-block;
+      margin: 5px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .card1:hover,
+    .card2:hover {
+      border: 5px solid#d3bdbd;
+      border-radius: 10px;
+
+    }
+
+    #menu {
+      position: fixed;
+      top: 56px;
+      left: 220px;
+      z-index: 90;
+      width: calc(100% - 220px);
+      height: 40px;
+      background: #fff;
+      padding: 8px 16px;
+      line-height: 24px;
+      box-sizing: border-box;
+    }
+
+    #menu span {
+      text-align: center;
+      margin-right: 12px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: #f0f0f0;
+      color: #0f0f0f;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    #menu span:hover {
+      background: #e0e0e0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="main">
+    <div id="top">
+      <table>
+        <tr>
+          <td class="t1"><i class="fa-solid fa-bars menu-icon"></i>
+            <a href="#" class="logo-link"><img id="logo" src="./logo2.png" alt="YouTube Logo"></a>
+          </td>
+          <td class="t2">
+            <input type="text" placeholder="搜尋">
+            <span><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></span>
+            <span><a href="#"><i class="fa-solid fa-microphone"></i></a></span>
+          </td>
+          <td class="t3">
+            <span><a id="plus" href=""><i class="fa-solid fa-plus"></i>建立</a></span>
+            <span> <i class="fa-solid fa-bell"></i></span>
+            <a href=""><i class="fa-solid fa-circle-user"></i></a>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div id="container">
+      <div id="left">
+        <div id="list">
+          <div>
+            <i class="fa-solid fa-house"></i>
+            <span>首頁</span>
+          </div>
+          <div>
+            <i class="fa-solid fa-video"></i>
+            <span>Shorts</span>
+          </div>
+          <div>
+            <i class="fa-solid fa-circle-play"></i>
+            <span>訂閱內容</span>
+          </div>
+          <hr>
+          <div>
+            <span>個人中心 ></span>
+          </div>
+          <div>
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            <span>觀看紀錄</span>
+          </div>
+          <div>
+            <i class="fa-solid fa-list"></i>
+            <span>播放清單</span>
+          </div>
+          <div>
+            <i class="fa-solid fa-tv"></i>
+            <span>你的影片</span>
+          </div>
+          <div>
+            <i class="fa-solid fa-clock"></i>
+            <span>稍後觀看</span>
+          </div>
+          <div>
+            <i class="fa-solid fa-thumbs-up"></i>
+            <span>喜歡的影片</span>
+          </div>
+          <hr>
+          <div>
+            <span>探索</span>
+          </div>
+          <div>
+            <i class="fa-solid fa-music"></i>
+            <span>音樂</span>
+          </div>
+          <div>
+            <i class="fa-solid fa-film"></i>
+            <span>電影</span>
+          </div>
+          <div>
+            <i class="fa-solid fa-tower-broadcast"></i>
+            <span>直播</span>
+          </div>
+          <div>
+            <i class="fa-solid fa-gamepad"></i>
+            <span>遊戲</span>
+          </div>
+          <div>
+            <i class="fa-solid fa-newspaper"></i>
+            <span>新聞</span>
+          </div>
+          <div>
+            <i class="fa-solid fa-trophy"></i>
+            <span>體育</span>
+          </div>
+          <div>
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>課程</span>
+          </div>
+          <div>
+            <i class="fa-solid fa-podcast"></i>
+            <span>Podcast</span>
+          </div>
+          <hr>
+
+          <div><i class="fa-solid fa-gear"></i>
+            <span>設定</span>
+          </div>
+          <div><i class="fa-solid fa-flag"></i>
+            <span>檢舉紀錄</span>
+          </div>
+          <div><i class="fa-solid fa-circle-question"></i>
+            <span>說明</span>
+          </div>
+          <div><i class="fa-solid fa-info"></i>
+            <span>提供意見</span>
+          </div>
+          <hr>
+          <p style="margin-top: 0;">簡介 媒體 著作權 與我們聯絡<br>
+            創作者 廣告 開發人員<br></p>
+          <p>條款 隱私權 政策與安全性 <br>
+            YouTube 運作方式 測試新功能<br></p>
+          <p class="a1"> © 2025 Google LLC</sanp>
+        </div>
+      </div>
+      <div id="menu">
+        <span>全部</span>
+        <span>音樂</span>
+        <span>合輯</span>
+        <span>Podcast</span>
+        <span>遊戲</span>
+        <span>新聞</span>
+        <span>直播中</span>
+        <span>塔羅牌</span>
+        <span>觀光</span>
+        <span>視覺藝術</span>
+        <span>烹飪</span>
+        <span>動畫</span>
+        <span>最新上傳</span>
+        <span>已觀看</span>
+        <span>讓你耳目一新</span>
+      </div>
+      <div id="right">
+        <div id="content">
+          <div class="card1">
+            <a href="#"><img src="./images/011.png" alt=""></a>
+          </div>
+          <div class="card1">
+            <a href="#"><img src="./images/013.png" alt=""></a>
+          </div>
+          <div class="card1">
+            <a href="#"><img src="./images/012.png" alt=""></a>
+          </div>
+          <div class="card1">
+            <a href="#"><img src="./images/014.png" alt=""></a>
+          </div>
+          <div class="card1">
+            <a href="#"><img src="./images/015.png" alt=""></a>
+          </div>
+          <div class="card1">
+            <a href="#"><img src="./images/016.png" alt=""></a>
+          </div>
+
+          <div class="card2">
+            <a href="#"><img src="./images/017.png" alt=""></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+</body>
+
+</html>
